@@ -95,7 +95,7 @@ void find_cmd(info_t *info)
 		info->linecount_flag = 0;
 	}
 	for (i = 0, k = 0; info->arg[i]; i++)
-		if (!is_delim(info->arg[i], " \t\n"))
+		if (!is_delim(info->arg[i], "\t \n"))
 			k++;
 	if (!k)
 		return;
@@ -154,8 +154,7 @@ void fork_cmd(info_t *info)
 		{
 			info->status = WEXITSTATUS(info->status);
 			if (info->status == 126)
-				print_error(info, "Permission denied\n");
+				print_error(info, "Permission denied \n");
 		}
 	}
 }
-
